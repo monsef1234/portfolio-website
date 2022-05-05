@@ -1,3 +1,19 @@
+// toggle dark light mode
+const dark = document.getElementsByClassName("uil-moon")[0];
+const light = document.getElementsByClassName("uil-sun")[0];
+console.log(light);
+const htmlFile = document.querySelector("html");
+dark.addEventListener("click", (eo) => {
+  htmlFile.classList.add("dark");
+  dark.classList.add("opacity");
+  light.classList.remove("opacity");
+});
+light.addEventListener("click", (eo) => {
+  htmlFile.classList.remove("dark");
+  dark.classList.remove("opacity");
+  light.classList.add("opacity");
+});
+// Menu
 const openMenu = document.getElementById("open-menu");
 const closeMenu = document.getElementById("close-menu");
 const menu = document.querySelector(".header_container ul");
@@ -15,13 +31,13 @@ closeMenu.addEventListener("click", (eo) => {
 });
 // Change the active class
 const sections = document.querySelectorAll(".section");
-console.log(sections);
 const navs = document.querySelectorAll(".header_container ul li");
 const removeActive = () => {
   navs.forEach((nav) => {
     nav.classList.remove("active");
   });
 };
+const hi = sections.length;
 sections.forEach((section, index) => {
   navs[0].classList.add("active");
   window.addEventListener("scroll", (eo) => {
@@ -129,18 +145,29 @@ const BackEnd = () => {
     }
   }, 30);
 };
+const resetUIUX = () => {
+  figma.innerHTML = `0%`;
+  figmaBox.style.width = `0%`;
+  adobexd.innerHTML = `0%`;
+  adobexdBox.style.width = `0%`;
+  adobeafter.innerHTML = `0%`;
+  adobeafterBox.style.width = `0%`;
+};
+
 const headers = document.querySelectorAll(".header");
 headers.forEach((header, index) => {
   header.addEventListener("click", (eo) => {
     header.classList.toggle("block");
-    if (index === 0) {
-      UIUX();
-    }
-    if (index === 1) {
-      FrontEnd();
-    }
-    if (index === 2) {
-      BackEnd();
+    if (header.classList.contains("block")) {
+      if (index === 0) {
+        UIUX();
+      }
+      if (index === 1) {
+        FrontEnd();
+      }
+      if (index === 2) {
+        BackEnd();
+      }
     }
   });
 });
