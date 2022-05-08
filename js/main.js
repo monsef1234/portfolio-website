@@ -171,3 +171,24 @@ headers.forEach((header, index) => {
     }
   });
 });
+// ScrollReveal
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "60px",
+  duration: 2500,
+  delay: 150,
+  reset: true,
+});
+sr.reveal(
+  ".landing_container, .talk_container, .testimonials_container, .prefooter, footer .container p"
+);
+sr.reveal(".about_container .info .img", { origin: "left" });
+sr.reveal(".about_container .info .info-content", { origin: "right" });
+sr.reveal(".skills_container");
+sr.reveal(".services_container .box1", { origin: "left" });
+sr.reveal(".services_container .box2");
+sr.reveal(".services_container .box3", { origin: "right" });
+sr.reveal(".works_container .boxes .box1", { origin: "left" });
+sr.reveal(".works_container .boxes .box2", { origin: "right" });
+sr.reveal(".works_container .boxes .box3", { origin: "left" });
+sr.reveal(".works_container .boxes .box4", { origin: "right" });
